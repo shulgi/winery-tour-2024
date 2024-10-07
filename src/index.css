@@ -1,0 +1,29 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+body {
+    font-family: "Playfair Display", serif;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Cormorant Garamond", serif;
+}
+
+.wine-bg {
+    background-image: linear-gradient(to right bottom, #3c0000, #240000);
+}
+
+.wine-card {
+    backdrop-filter: blur(10px);
+    background-color: rgba(30, 30, 30, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wine-text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
