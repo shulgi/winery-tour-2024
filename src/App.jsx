@@ -2,29 +2,7 @@ import React, { useState } from "react";
 import wineries from "./data/wineries";
 import CalendarView from "./components/CalendarView";
 
-const WineryCard = ({ winery }) => (
-  <div className="bg-gray-800 border border-gray-700 rounded-lg p-6 mb-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-    <h3 className="text-2xl font-bold text-red-500 mb-2">{winery.name}</h3>
-    <div className="text-yellow-500 mb-2">{"🍷".repeat(winery.rating)}</div>
-    <p className="text-gray-300 mb-1">
-      <span className="font-semibold">Time:</span> {winery.time}
-    </p>
-    <p className="text-gray-300 mb-1">
-      <span className="font-semibold">Known for:</span> {winery.knownFor}
-    </p>
-    <p className="text-gray-300 mb-3">
-      <span className="font-semibold">Address:</span> {winery.address}
-    </p>
-    <a
-      href={winery.website}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-red-400 hover:text-red-300 transition-colors duration-300"
-    >
-      Visit Website
-    </a>
-  </div>
-);
+import WineryCard from "./components/WineryCard";
 
 const WineryListView = ({ wineries }) => (
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -35,7 +13,7 @@ const WineryListView = ({ wineries }) => (
 );
 
 const App = () => {
-  const [activeTab, setActiveTab] = useState("calendar");
+  const [activeTab, setActiveTab] = useState("list");
 
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100 p-8">

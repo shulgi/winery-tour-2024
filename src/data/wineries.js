@@ -5,6 +5,8 @@ const wineries = [
     wines: ["Rhone Style Red Blend", "Grenache", "Mourvèdre"],
     food: "Yellow Curry with Roasted Winter Vegetables",
     homepage: "https://carolshelton.com",
+    lat: 38.4983,
+    lng: -122.8211,
   },
   {
     name: "Notre Vue Estate",
@@ -12,6 +14,8 @@ const wineries = [
     wines: ["Bordeaux Style Blends", "Rhone Style Blends"],
     food: "Renee's Famous Roasted Garlic Mashtinis",
     homepage: "https://notrevueestate.com",
+    lat: 38.503,
+    lng: -122.8174,
   },
   {
     name: "Spicy Vines",
@@ -19,6 +23,8 @@ const wineries = [
     wines: ["Syrah"],
     food: "Venison Chili with a Blueberry Reduction",
     homepage: "https://spicyvines.com",
+    lat: 38.6103,
+    lng: -122.8665,
   },
   {
     name: "ACTA",
@@ -26,6 +32,8 @@ const wineries = [
     wines: ["Bordeaux Style Blends"],
     food: "Caramelized, Spiced & Savored Wood-Fired Flatbread",
     homepage: "https://actawinery.com",
+    lat: 38.5965,
+    lng: -122.8176,
   },
   {
     name: "Soda Rock Barn",
@@ -33,6 +41,8 @@ const wineries = [
     wines: ["Bordeaux Style Blends"],
     food: "Braised Short Ribs & Creamy Polenta",
     homepage: "https://sodarockwinery.com",
+    lat: 38.5735,
+    lng: -122.8511,
   },
   {
     name: "Alexander Valley Vineyards",
@@ -46,6 +56,8 @@ const wineries = [
     ],
     food: "Grilled Tri Tip with Roasted Cherry Tomato Salsa",
     homepage: "https://www.avvwine.com",
+    lat: 38.583,
+    lng: -122.8452,
   },
   {
     name: "deLorimier Winery",
@@ -53,6 +65,8 @@ const wineries = [
     wines: ["Bordeaux Style Blends"],
     food: "Beef Bourguignon with Mashed Potatoes and a mini–Herb Biscuit",
     homepage: "https://delorimierwinery.com",
+    lat: 38.6131,
+    lng: -122.8437,
   },
   {
     name: "Pedroncelli Winery",
@@ -60,6 +74,8 @@ const wineries = [
     wines: ["Bordeaux Style Blends"],
     food: "Polenta with Slow-Roasted Tomatoes and Teleme",
     homepage: "https://www.pedroncelli.com",
+    lat: 38.6096,
+    lng: -122.8439,
   },
   {
     name: "J. Rickards Winery",
@@ -71,6 +87,8 @@ const wineries = [
     ],
     food: "Stuffed Pasta Shells with Butternut Squash and Béchamel",
     homepage: "https://www.jrwinery.com",
+    lat: 38.5323,
+    lng: -122.8658,
   },
   {
     name: "GC Lurton Vineyards",
@@ -78,6 +96,8 @@ const wineries = [
     wines: ["Bordeaux Style Blends"],
     food: "Beef Bourguignon Facon Grand Mère",
     homepage: "https://www.gclurton.com",
+    lat: 38.6105,
+    lng: -122.8682,
   },
   {
     name: "EHRET Winery",
@@ -85,6 +105,8 @@ const wineries = [
     wines: ["Bordeaux Style Blends"],
     food: "Dark Chocolate Truffle",
     homepage: "https://ehretwinery.com",
+    lat: 38.6105,
+    lng: -122.8682,
   },
 ];
 

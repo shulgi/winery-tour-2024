@@ -7,10 +7,12 @@ const MapView = ({ routes }) => {
   const mapInstanceRef = useRef(null);
 
   useEffect(() => {
-    if (!routes || routes.length === 0) return;
+    if (!routes || routes.length === 0) {
+      console.log("No routes available yet");
+      return;
+    }
 
     if (!mapInstanceRef.current) {
-      // Initialize the map only if it doesn't exist
       mapInstanceRef.current = L.map(mapRef.current).setView(
         [38.5, -122.8],
         10,
@@ -20,7 +22,6 @@ const MapView = ({ routes }) => {
         attribution: "© OpenStreetMap contributors",
       }).addTo(mapInstanceRef.current);
     } else {
-      // If map exists, clear existing layers
       mapInstanceRef.current.eachLayer((layer) => {
         if (layer instanceof L.Polyline || layer instanceof L.Marker) {
           mapInstanceRef.current.removeLayer(layer);
@@ -28,31 +29,40 @@ const MapView = ({ routes }) => {
       });
     }
 
-    const markersGroup = L.layerGroup().addTo(mapInstanceRef.current);
+    const featureGroup = L.featureGroup().addTo(mapInstanceRef.current);
 
     routes.forEach((dayRoute, dayIndex) => {
-      const routeCoordinates = Object.values(dayRoute).map((stop) => [
-        stop.lat,
-        stop.lng,
-      ]);
+      if (!dayRoute || !Array.isArray(dayRoute)) {
+        console.error(`Invalid route for day ${dayIndex + 1}`);
+        return;
+      }
 
-      L.polyline(routeCoordinates, {
-        color: dayIndex === 0 ? "blue" : "red",
-      }).addTo(mapInstanceRef.current);
+      const routeCoordinates = dayRoute
+        .filter((stop) => stop && stop.lat && stop.lng)
+        .map((stop) => [stop.lat, stop.lng]);
 
-      Object.values(dayRoute).forEach((stop, stopIndex) => {
-        L.marker([stop.lat, stop.lng])
-          .addTo(markersGroup)
-          .bindPopup(
-            `Day ${dayIndex + 1}, Stop ${stopIndex + 1}: ${stop.name}`,
-          );
-      });
+      if (routeCoordinates.length > 0) {
+        L.polyline(routeCoordinates, {
+          color: dayIndex === 0 ? "blue" : "red",
+        }).addTo(featureGroup);
+
+        dayRoute.forEach((stop, stopIndex) => {
+          if (stop && stop.lat && stop.lng) {
+            L.marker([stop.lat, stop.lng])
+              .addTo(featureGroup)
+              .bindPopup(
+                `Day ${dayIndex + 1}, Stop ${stopIndex + 1}: ${stop.name}`,
+              );
+          }
+        });
+      }
     });
 
-    const bounds = markersGroup.getBounds();
-    mapInstanceRef.current.fitBounds(bounds);
+    const bounds = featureGroup.getBounds();
+    if (bounds.isValid()) {
+      mapInstanceRef.current.fitBounds(bounds);
+    }
 
-    // Cleanup function
     return () => {
       if (mapInstanceRef.current) {
         mapInstanceRef.current.remove();
